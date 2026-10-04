@@ -1,0 +1,16 @@
+/// Ховер только на устройствах, где он действительно есть.
+/// Не срабатывает на тач-скринах, где :hover «залипает» после тапа.
+@mixin hover {
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+/// Обрезка текста в одну строку с многоточием.
+@mixin ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

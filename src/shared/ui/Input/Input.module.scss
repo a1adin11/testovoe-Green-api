@@ -1,0 +1,140 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	width: 100%;
+}
+
+.label {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+	color: #5c5c5c;
+	word-break: break-word;
+}
+
+.required {
+	color: #ff5a50;
+	margin-left: 4px;
+}
+
+.inputWrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+	input {
+		padding: 0 12px;
+		width: 100%;
+		border: 1px solid #bdbdbd;
+		border-radius: var(--radius-sm);
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 20px;
+		color: inherit;
+		transition: border-color 0.3s ease-in;
+
+		&::placeholder {
+			color: #858585;
+		}
+
+		&:focus {
+			border-color: var(--color-accent);
+		}
+	}
+
+	svg {
+		flex-shrink: 0;
+	}
+}
+
+.clickable {
+	cursor: pointer;
+
+	input {
+		cursor: pointer;
+	}
+}
+
+.search {
+	input {
+		padding-left: 40px;
+		padding-right: 44px;
+	}
+}
+
+.password {
+	input {
+		padding-right: 44px;
+	}
+}
+
+.lg {
+	input {
+		height: 48px;
+	}
+}
+
+.md {
+	input {
+		height: 42px;
+	}
+}
+
+.sm {
+	input {
+		height: 36px;
+	}
+}
+
+.disabled {
+	opacity: 0.6;
+}
+
+.searchIcon {
+	position: absolute;
+	left: 12px;
+	pointer-events: none;
+}
+
+.rightIconWrapper {
+	position: absolute;
+	width: 40px;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	border-radius: var(--radius-sm);
+	transition: opacity 0.3s ease-in;
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+
+	@include hover {
+		&:not(:disabled) {
+			opacity: 0.6;
+		}
+	}
+}
+
+.errorBorder {
+	input {
+		border-color: #ff6359;
+	}
+}
+
+.error {
+	color: #ff5a50;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 14px;
+}

@@ -1,7 +1,6 @@
 import type { ReactElement } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 
 import { getApiErrorMessage } from '@shared/api';
 import { Button } from '@shared/ui/Button';
@@ -9,17 +8,7 @@ import { Input } from '@shared/ui/Input';
 
 import { useCheckAccount } from '../../hooks/useCheckAccount';
 import styles from './ChatSearch.module.scss';
-
-const searchSchema = z.object({
-	phoneNumber: z
-		.string()
-		.trim()
-		.min(11, 'Номер от 11 до 16 цифр')
-		.max(16, 'Номер от 11 до 16 цифр')
-		.regex(/^\d+$/, 'Только цифры, без плюса и пробелов'),
-});
-
-type TSearchValues = z.infer<typeof searchSchema>;
+import { searchSchema, type TSearchValues } from './types';
 
 interface IProps {
 	onFound: (chatId: string) => void;
@@ -54,10 +43,10 @@ export const ChatSearch = ({ onFound }: IProps): ReactElement => {
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
+
 			<Input
 				type="search"
-				label="Номер телефона"
-				placeholder="79001234567"
+				placeholder="Введите номер телефона для начала диалога"
 				inputMode="numeric"
 				error={errors.phoneNumber?.message}
 				{...register('phoneNumber')}

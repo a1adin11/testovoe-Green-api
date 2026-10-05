@@ -45,6 +45,18 @@
 		&:focus {
 			border-color: var(--color-accent);
 		}
+
+		// Chromium и Safari рисуют у type="search" свою кнопку очистки,
+		// которая появляется поверх нашей в rightIconWrapper
+		&[type='search'] {
+			appearance: none;
+
+			&::-webkit-search-cancel-button,
+			&::-webkit-search-decoration {
+				appearance: none;
+				display: none;
+			}
+		}
 	}
 
 	svg {

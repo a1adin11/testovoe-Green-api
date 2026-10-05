@@ -33,7 +33,7 @@ export const ChatPage = (): ReactElement => {
 			}
 			{chatId &&
 				<>
-					<MessageList messages={messages} isLoading={isLoading} />
+					<MessageList key={chatId} messages={messages} isLoading={isLoading} />
 					<MessageComposer chatId={chatId} />
 				</>
 			}
